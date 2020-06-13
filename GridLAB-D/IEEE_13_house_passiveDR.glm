@@ -10,7 +10,8 @@ clock {
 #include "light_schedule.glm";
 #include "water_and_setpoint_schedule.glm";
 #define stylesheet=http://gridlab-d.svn.sourceforge.net/viewvc/gridlab-d/trunk/core/gridlabd-2_0
-#set minimum_timestep=60;
+//#set minimum_timestep=60; //changes
+#set minimum_timestep=30;
 #set profiler=1;
 #set relax_naming_rules=1;
 
@@ -28,7 +29,8 @@ module market;
 
 object stubauction {
      name Market_1;
-     period 300;
+     //period 300; //changes
+	 period 30;
      object player {
           file Price.player;
           loop 365;
@@ -36,8 +38,10 @@ object stubauction {
      };
      object recorder {
           property avg24,std24,last.P,current_market.clearing_price;
-          limit 2880;
-          interval 60;
+          //limit 2880; //changes
+		  limit 5760;
+          //interval 60;
+		  interval 30;
           file price_statistics.csv;
      };
 }
@@ -272,8 +276,10 @@ object transformer {
      name substation_transformer;
      object recorder {
           file IEEE_13_house_passiveDR_transformer_power.csv;
-          interval 60;
-          limit 2880;
+          //limit 2880; //changes
+		  limit 5760;
+          //interval 60;
+		  interval 30;
           property power_in_A.real,power_in_A.imag,power_in_B.real,power_in_B.imag,power_in_C.real,power_in_C.imag,power_out_A.real,power_out_A.imag,power_out_B.real,power_out_B.imag,power_out_C.real,power_out_C.imag,power_losses_A.real,power_losses_A.imag;
      };
      groupid Distribution_Trans;
@@ -757,7 +763,8 @@ object house {
           tank_UA 3.7;
           demand water5*1;
           object passive_controller {
-          	  period 300;
+          	  ////period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -864,7 +871,8 @@ object house {
           tank_UA 3.0;
           demand water8*1;
           object passive_controller {
-          	  period 300;
+          	  ////period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -971,7 +979,8 @@ object house {
           tank_UA 3.8;
           demand water17*1;
           object passive_controller {
-          	  period 300;
+          	  ////period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -1261,7 +1270,8 @@ object house {
           tank_UA 2.1;
           demand water5*1;
           object passive_controller {
-          	  period 300;
+          	  ////period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -1429,7 +1439,8 @@ object house {
           tank_UA 2.9;
           demand water11*1;
           object passive_controller {
-          	  period 300;
+          	  ////period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -1658,7 +1669,8 @@ object house {
           tank_UA 2.6;
           demand water20*1;
           object passive_controller {
-          	  period 300;
+          	 ////period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -1765,7 +1777,8 @@ object house {
           tank_UA 2.9;
           demand water16*1;
           object passive_controller {
-          	  period 300;
+          	  ////period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -1933,7 +1946,8 @@ object house {
           tank_UA 2.9;
           demand water12*1;
           object passive_controller {
-          	  period 300;
+          	  ////period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -2101,7 +2115,8 @@ object house {
           tank_UA 3.1;
           demand water17*1;
           object passive_controller {
-          	  period 300;
+          	  ////period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -2269,7 +2284,8 @@ object house {
           tank_UA 3.8;
           demand water6*1;
           object passive_controller {
-          	  period 300;
+          	 ////period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -2376,7 +2392,8 @@ object house {
           tank_UA 2.9;
           demand water6*1;
           object passive_controller {
-          	  period 300;
+          	  ////period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -2483,7 +2500,8 @@ object house {
           tank_UA 3.3;
           demand water1*1;
           object passive_controller {
-          	  period 300;
+          	  ////period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -2613,7 +2631,8 @@ object house {
           tank_UA 2.4;
           demand water2*1;
           object passive_controller {
-          	  period 300;
+          	  ////period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -2720,7 +2739,8 @@ object house {
           tank_UA 3.4;
           demand water15*1;
           object passive_controller {
-          	  period 300;
+          	  ////period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -2827,7 +2847,8 @@ object house {
           tank_UA 2.1;
           demand water20*1;
           object passive_controller {
-          	  period 300;
+          	  ////period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -2934,7 +2955,8 @@ object house {
           tank_UA 3.7;
           demand water1*1;
           object passive_controller {
-          	  period 300;
+          	  ////period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -3041,7 +3063,8 @@ object house {
           tank_UA 4.0;
           demand water1*1;
           object passive_controller {
-          	  period 300;
+          	  ////period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -3209,7 +3232,8 @@ object house {
           tank_UA 2.9;
           demand water11*1;
           object passive_controller {
-          	  period 300;
+          	  ////period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -3316,7 +3340,8 @@ object house {
           tank_UA 3.0;
           demand water15*1;
           object passive_controller {
-          	  period 300;
+          	  ////period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -3423,7 +3448,8 @@ object house {
           tank_UA 2.5;
           demand water16*1;
           object passive_controller {
-          	  period 300;
+          	  ////period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -3530,7 +3556,8 @@ object house {
           tank_UA 2.1;
           demand water19*1;
           object passive_controller {
-          	  period 300;
+          	  ////period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -3698,7 +3725,8 @@ object house {
           tank_UA 3.7;
           demand water3*1;
           object passive_controller {
-          	  period 300;
+          	  ////period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -3805,7 +3833,8 @@ object house {
           tank_UA 3.5;
           demand water10*1;
           object passive_controller {
-          	  period 300;
+          	  ////period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -3912,7 +3941,8 @@ object house {
           tank_UA 3.5;
           demand water10*1;
           object passive_controller {
-          	  period 300;
+          	  ////period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -4080,7 +4110,8 @@ object house {
           tank_UA 2.3;
           demand water7*1;
           object passive_controller {
-          	  period 300;
+          	  ////period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -4187,7 +4218,8 @@ object house {
           tank_UA 3.6;
           demand water14*1;
           object passive_controller {
-          	  period 300;
+          	  ////period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -4355,7 +4387,8 @@ object house {
           tank_UA 2.1;
           demand water6*1;
           object passive_controller {
-          	  period 300;
+          	  ////period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -4485,7 +4518,8 @@ object house {
           tank_UA 2.4;
           demand water18*1;
           object passive_controller {
-          	  period 300;
+          	  ////period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -4592,7 +4626,8 @@ object house {
           tank_UA 2.5;
           demand water12*1;
           object passive_controller {
-          	  period 300;
+          	  ////period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -4699,7 +4734,8 @@ object house {
           tank_UA 2.9;
           demand water17*1;
           object passive_controller {
-          	  period 300;
+          	  ////period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -4806,7 +4842,9 @@ object house {
           tank_UA 3.8;
           demand water19*1;
           object passive_controller {
-          	  period 300;
+          	  ////period 300; //changes
+			  
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -4913,7 +4951,9 @@ object house {
           tank_UA 3.0;
           demand water10*1;
           object passive_controller {
-          	  period 300;
+          	  ////period 300; //changes
+			  
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -5142,7 +5182,9 @@ object house {
           tank_UA 3.8;
           demand water7*1;
           object passive_controller {
-          	  period 300;
+          	  ////period 300; //changes
+			  
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -5249,7 +5291,9 @@ object house {
           tank_UA 3.9;
           demand water3*1;
           object passive_controller {
-          	  period 300;
+          	  ////period 300; //changes
+			  
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -5356,7 +5400,9 @@ object house {
           tank_UA 3.2;
           demand water9*1;
           object passive_controller {
-          	  period 300;
+          	  ////period 300; //changes
+			  //
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -5524,7 +5570,9 @@ object house {
           tank_UA 3.1;
           demand water16*1;
           object passive_controller {
-          	  period 300;
+          	  ////period 300; //changes
+			 //
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -5631,7 +5679,9 @@ object house {
           tank_UA 3.4;
           demand water9*1;
           object passive_controller {
-          	  period 300;
+          	  ////period 300; //changes
+			 //
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -5738,7 +5788,9 @@ object house {
           tank_UA 3.8;
           demand water13*1;
           object passive_controller {
-          	  period 300;
+          	  ////period 300; //changes
+			 //
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -5845,7 +5897,9 @@ object house {
           tank_UA 2.3;
           demand water14*1;
           object passive_controller {
-          	  period 300;
+          	  ////period 300; //changes
+			 //
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -5952,7 +6006,9 @@ object house {
           tank_UA 3.6;
           demand water3*1;
           object passive_controller {
-          	  period 300;
+          	  ////period 300; //changes
+			 //
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -6059,7 +6115,9 @@ object house {
           tank_UA 3.8;
           demand water19*1;
           object passive_controller {
-          	  period 300;
+          	  ////period 300; //changes
+			 //
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -6166,7 +6224,9 @@ object house {
           tank_UA 3.7;
           demand water16*1;
           object passive_controller {
-          	  period 300;
+          	  ////period 300; //changes
+			 //
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -6273,7 +6333,9 @@ object house {
           tank_UA 2.2;
           demand water13*1;
           object passive_controller {
-          	  period 300;
+          	  ////period 300; //changes
+			 //
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -6380,7 +6442,9 @@ object house {
           tank_UA 3.4;
           demand water7*1;
           object passive_controller {
-          	  period 300;
+          	  ////period 300; //changes
+			 //
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -6487,7 +6551,9 @@ object house {
           tank_UA 3.9;
           demand water1*1;
           object passive_controller {
-          	  period 300;
+          	  ////period 300; //changes
+			 //
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -6594,7 +6660,9 @@ object house {
           tank_UA 3.1;
           demand water11*1;
           object passive_controller {
-          	  period 300;
+          	  ////period 300; //changes
+			 //
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -6701,7 +6769,9 @@ object house {
           tank_UA 4.0;
           demand water20*1;
           object passive_controller {
-          	  period 300;
+          	  ////period 300; //changes
+			 //
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -6869,7 +6939,9 @@ object house {
           tank_UA 3.2;
           demand water7*1;
           object passive_controller {
-          	  period 300;
+          	  ////period 300; //changes
+			 //
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -6976,7 +7048,9 @@ object house {
           tank_UA 2.3;
           demand water15*1;
           object passive_controller {
-          	  period 300;
+          	  ////period 300; //changes
+			 //
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -7083,7 +7157,9 @@ object house {
           tank_UA 3.9;
           demand water1*1;
           object passive_controller {
-          	  period 300;
+          	  ////period 300; //changes
+			 //
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -7190,7 +7266,9 @@ object house {
           tank_UA 3.4;
           demand water3*1;
           object passive_controller {
-          	  period 300;
+          	  ////period 300; //changes
+			 //
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -7419,7 +7497,9 @@ object house {
           tank_UA 4.0;
           demand water1*1;
           object passive_controller {
-          	  period 300;
+          	  ////period 300; //changes
+			 //
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -7587,7 +7667,9 @@ object house {
           tank_UA 2.6;
           demand water18*1;
           object passive_controller {
-          	  period 300;
+          	  ////period 300; //changes
+			 //
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -7694,7 +7776,9 @@ object house {
           tank_UA 2.5;
           demand water16*1;
           object passive_controller {
-          	  period 300;
+          	  ////period 300; //changes
+			 //
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -7801,7 +7885,9 @@ object house {
           tank_UA 3.4;
           demand water11*1;
           object passive_controller {
-          	  period 300;
+          	  ////period 300; //changes
+			 //
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -7908,7 +7994,9 @@ object house {
           tank_UA 2.9;
           demand water10*1;
           object passive_controller {
-          	  period 300;
+          	  ////period 300; //changes
+			 //
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -8015,7 +8103,9 @@ object house {
           tank_UA 2.6;
           demand water6*1;
           object passive_controller {
-          	  period 300;
+          	  ////period 300; //changes
+			 //
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -8122,7 +8212,9 @@ object house {
           tank_UA 2.2;
           demand water9*1;
           object passive_controller {
-          	  period 300;
+          	  ////period 300; //changes
+			 //
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -8557,7 +8649,9 @@ object house {
           tank_UA 4.0;
           demand water7*1;
           object passive_controller {
-          	  period 300;
+          	  ////period 300; //changes
+			 //
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -8664,7 +8758,9 @@ object house {
           tank_UA 3.4;
           demand water10*1;
           object passive_controller {
-          	  period 300;
+          	  ////period 300; //changes
+			 //
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -8771,7 +8867,9 @@ object house {
           tank_UA 3.5;
           demand water9*1;
           object passive_controller {
-          	  period 300;
+          	  ////period 300; //changes
+			 //
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -8939,7 +9037,9 @@ object house {
           tank_UA 2.7;
           demand water14*1;
           object passive_controller {
-          	  period 300;
+          	  ////period 300; //changes
+			 //
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -9046,7 +9146,9 @@ object house {
           tank_UA 2.1;
           demand water1*1;
           object passive_controller {
-          	  period 300;
+          	  ////period 300; //changes
+			 //
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -9153,7 +9255,9 @@ object house {
           tank_UA 3.5;
           demand water17*1;
           object passive_controller {
-          	  period 300;
+          	  ////period 300; //changes
+			 //
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -9321,7 +9425,9 @@ object house {
           tank_UA 3.9;
           demand water12*1;
           object passive_controller {
-          	  period 300;
+          	  ////period 300; //changes
+			 //
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -9428,7 +9534,9 @@ object house {
           tank_UA 3.5;
           demand water1*1;
           object passive_controller {
-          	  period 300;
+          	  ////period 300; //changes
+			 //
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -9596,7 +9704,9 @@ object house {
           tank_UA 3.4;
           demand water13*1;
           object passive_controller {
-          	  period 300;
+          	  ////period 300; //changes
+			 //
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -9703,7 +9813,9 @@ object house {
           tank_UA 3.5;
           demand water8*1;
           object passive_controller {
-          	  period 300;
+          	  ////period 300; //changes
+			 //
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -9871,7 +9983,9 @@ object house {
           tank_UA 2.7;
           demand water3*1;
           object passive_controller {
-          	  period 300;
+          	  ////period 300; //changes
+			 //
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -9978,7 +10092,9 @@ object house {
           tank_UA 3.7;
           demand water12*1;
           object passive_controller {
-          	  period 300;
+          	  ////period 300; //changes
+			 //
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -10085,7 +10201,9 @@ object house {
           tank_UA 3.9;
           demand water17*1;
           object passive_controller {
-          	  period 300;
+          	  ////period 300; //changes
+			 //
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -10253,7 +10371,9 @@ object house {
           tank_UA 3.2;
           demand water20*1;
           object passive_controller {
-          	  period 300;
+          	  ////period 300; //changes
+			 //
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -10360,7 +10480,9 @@ object house {
           tank_UA 3.3;
           demand water10*1;
           object passive_controller {
-          	  period 300;
+          	  ////period 300; //changes
+			 //
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -10528,7 +10650,9 @@ object house {
           tank_UA 3.0;
           demand water15*1;
           object passive_controller {
-          	  period 300;
+          	  ////period 300; //changes
+			 //
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -10635,7 +10759,9 @@ object house {
           tank_UA 3.2;
           demand water19*1;
           object passive_controller {
-          	  period 300;
+          	  ////period 300; //changes
+			 //
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -10803,7 +10929,9 @@ object house {
           tank_UA 3.0;
           demand water15*1;
           object passive_controller {
-          	  period 300;
+          	  ////period 300; //changes
+			 //
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -10971,7 +11099,9 @@ object house {
           tank_UA 3.5;
           demand water13*1;
           object passive_controller {
-          	  period 300;
+          	  ////period 300; //changes
+			 //
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -11078,7 +11208,9 @@ object house {
           tank_UA 2.4;
           demand water17*1;
           object passive_controller {
-          	  period 300;
+          	  ////period 300; //changes
+			 //
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -11185,7 +11317,9 @@ object house {
           tank_UA 3.0;
           demand water15*1;
           object passive_controller {
-          	  period 300;
+          	  ////period 300; //changes
+			 //
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -11292,7 +11426,9 @@ object house {
           tank_UA 2.8;
           demand water16*1;
           object passive_controller {
-          	  period 300;
+          	  ////period 300; //changes
+			 //
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -11399,7 +11535,9 @@ object house {
           tank_UA 2.8;
           demand water11*1;
           object passive_controller {
-          	  period 300;
+          	  ////period 300; //changes
+			 //
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -11506,7 +11644,9 @@ object house {
           tank_UA 3.6;
           demand water19*1;
           object passive_controller {
-          	  period 300;
+          	  ////period 300; //changes
+			 //
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -11613,7 +11753,9 @@ object house {
           tank_UA 2.3;
           demand water5*1;
           object passive_controller {
-          	  period 300;
+          	  ////period 300; //changes
+			 //
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -11720,7 +11862,9 @@ object house {
           tank_UA 3.9;
           demand water16*1;
           object passive_controller {
-          	  period 300;
+          	  ////period 300; //changes
+			 //
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -12010,7 +12154,9 @@ object house {
           tank_UA 2.9;
           demand water17*1;
           object passive_controller {
-          	  period 300;
+          	  ////period 300; //changes
+			 //
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -12117,7 +12263,9 @@ object house {
           tank_UA 3.5;
           demand water13*1;
           object passive_controller {
-          	  period 300;
+          	  ////period 300; //changes
+			 //
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -12224,7 +12372,9 @@ object house {
           tank_UA 3.2;
           demand water15*1;
           object passive_controller {
-          	  period 300;
+          	  ////period 300; //changes
+			 //
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -12331,7 +12481,9 @@ object house {
           tank_UA 2.6;
           demand water9*1;
           object passive_controller {
-          	  period 300;
+          	  ////period 300; //changes
+			 //
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -12499,7 +12651,9 @@ object house {
           tank_UA 3.5;
           demand water13*1;
           object passive_controller {
-          	  period 300;
+          	  ////period 300; //changes
+			 //
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -12606,7 +12760,9 @@ object house {
           tank_UA 2.4;
           demand water6*1;
           object passive_controller {
-          	  period 300;
+          	  ////period 300; //changes
+			 //
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -12713,7 +12869,9 @@ object house {
           tank_UA 3.8;
           demand water18*1;
           object passive_controller {
-          	  period 300;
+          	  ////period 300; //changes
+			 //
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -12881,7 +13039,9 @@ object house {
           tank_UA 2.8;
           demand water20*1;
           object passive_controller {
-          	  period 300;
+          	  ////period 300; //changes
+			 //
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -12988,7 +13148,9 @@ object house {
           tank_UA 3.9;
           demand water19*1;
           object passive_controller {
-          	  period 300;
+          	  ////period 300; //changes
+			 //
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -13156,7 +13318,9 @@ object house {
           tank_UA 3.8;
           demand water6*1;
           object passive_controller {
-          	  period 300;
+          	  ////period 300; //changes
+			 //
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -13263,7 +13427,9 @@ object house {
           tank_UA 3.0;
           demand water2*1;
           object passive_controller {
-          	  period 300;
+          	  ////period 300; //changes
+			 //
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -13370,7 +13536,9 @@ object house {
           tank_UA 2.9;
           demand water11*1;
           object passive_controller {
-          	  period 300;
+          	  ////period 300; //changes
+			 //
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -13477,7 +13645,9 @@ object house {
           tank_UA 2.0;
           demand water11*1;
           object passive_controller {
-          	  period 300;
+          	  ////period 300; //changes
+			 //
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -13645,7 +13815,9 @@ object house {
           tank_UA 2.3;
           demand water11*1;
           object passive_controller {
-          	  period 300;
+          	  ////period 300; //changes
+			 //
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -13752,7 +13924,9 @@ object house {
           tank_UA 2.4;
           demand water15*1;
           object passive_controller {
-          	  period 300;
+          	  ////period 300; //changes
+			 //
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -13859,7 +14033,9 @@ object house {
           tank_UA 2.1;
           demand water14*1;
           object passive_controller {
-          	  period 300;
+          	  ////period 300; //changes
+			 //
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -13966,7 +14142,9 @@ object house {
           tank_UA 2.8;
           demand water12*1;
           object passive_controller {
-          	  period 300;
+          	  ////period 300; //changes
+			 //
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -14073,7 +14251,9 @@ object house {
           tank_UA 3.8;
           demand water6*1;
           object passive_controller {
-          	  period 300;
+          	  ////period 300; //changes
+			 //
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -14180,7 +14360,8 @@ object house {
           tank_UA 2.4;
           demand water10*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -14371,7 +14552,8 @@ object house {
           tank_UA 3.3;
           demand water17*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -14539,7 +14721,8 @@ object house {
           tank_UA 2.2;
           demand water6*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -14646,7 +14829,8 @@ object house {
           tank_UA 3.1;
           demand water5*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -14753,7 +14937,8 @@ object house {
           tank_UA 2.4;
           demand water5*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -14860,7 +15045,8 @@ object house {
           tank_UA 2.2;
           demand water19*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -14967,7 +15153,8 @@ object house {
           tank_UA 2.4;
           demand water11*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -15135,7 +15322,8 @@ object house {
           tank_UA 2.5;
           demand water16*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -15303,7 +15491,8 @@ object house {
           tank_UA 3.4;
           demand water1*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -15410,7 +15599,8 @@ object house {
           tank_UA 3.2;
           demand water1*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -15639,7 +15829,8 @@ object house {
           tank_UA 2.1;
           demand water10*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -15868,7 +16059,8 @@ object house {
           tank_UA 3.9;
           demand water1*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -15975,7 +16167,8 @@ object house {
           tank_UA 3.7;
           demand water10*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -16143,7 +16336,8 @@ object house {
           tank_UA 2.2;
           demand water6*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -16311,7 +16505,8 @@ object house {
           tank_UA 3.3;
           demand water19*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -16418,7 +16613,8 @@ object house {
           tank_UA 3.8;
           demand water9*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -16525,7 +16721,8 @@ object house {
           tank_UA 4.0;
           demand water5*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -16754,7 +16951,8 @@ object house {
           tank_UA 3.2;
           demand water10*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -16861,7 +17059,8 @@ object house {
           tank_UA 3.1;
           demand water3*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -16968,7 +17167,8 @@ object house {
           tank_UA 2.0;
           demand water6*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -17197,7 +17397,8 @@ object house {
           tank_UA 3.4;
           demand water13*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -17304,7 +17505,8 @@ object house {
           tank_UA 3.7;
           demand water2*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -17411,7 +17613,8 @@ object house {
           tank_UA 2.7;
           demand water9*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -17640,7 +17843,8 @@ object house {
           tank_UA 3.6;
           demand water7*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -17747,7 +17951,8 @@ object house {
           tank_UA 2.9;
           demand water15*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -17976,7 +18181,8 @@ object house {
           tank_UA 2.0;
           demand water13*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -18144,7 +18350,8 @@ object house {
           tank_UA 3.1;
           demand water20*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -18251,7 +18458,8 @@ object house {
           tank_UA 2.7;
           demand water13*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -18358,7 +18566,8 @@ object house {
           tank_UA 3.1;
           demand water12*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -18465,7 +18674,8 @@ object house {
           tank_UA 2.2;
           demand water10*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -18633,7 +18843,8 @@ object house {
           tank_UA 3.9;
           demand water1*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -18862,7 +19073,8 @@ object house {
           tank_UA 3.3;
           demand water4*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -19030,7 +19242,8 @@ object house {
           tank_UA 2.7;
           demand water7*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -19137,7 +19350,8 @@ object house {
           tank_UA 3.2;
           demand water16*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -19244,7 +19458,8 @@ object house {
           tank_UA 3.0;
           demand water4*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -19374,7 +19589,8 @@ object house {
           tank_UA 3.2;
           demand water12*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -19481,7 +19697,8 @@ object house {
           tank_UA 2.3;
           demand water4*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -19588,7 +19805,8 @@ object house {
           tank_UA 3.8;
           demand water4*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -19695,7 +19913,8 @@ object house {
           tank_UA 2.6;
           demand water6*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -19863,7 +20082,8 @@ object house {
           tank_UA 3.4;
           demand water10*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -19970,7 +20190,8 @@ object house {
           tank_UA 3.9;
           demand water18*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -20077,7 +20298,8 @@ object house {
           tank_UA 2.3;
           demand water11*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -20184,7 +20406,8 @@ object house {
           tank_UA 2.4;
           demand water9*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -20291,7 +20514,8 @@ object house {
           tank_UA 3.3;
           demand water15*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -20459,7 +20683,8 @@ object house {
           tank_UA 4.0;
           demand water20*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -20566,7 +20791,8 @@ object house {
           tank_UA 3.3;
           demand water10*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -20673,7 +20899,8 @@ object house {
           tank_UA 2.7;
           demand water4*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -20902,7 +21129,8 @@ object house {
           tank_UA 3.8;
           demand water19*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -21009,7 +21237,8 @@ object house {
           tank_UA 3.7;
           demand water18*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -21177,7 +21406,8 @@ object house {
           tank_UA 3.4;
           demand water14*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -21345,7 +21575,8 @@ object house {
           tank_UA 2.8;
           demand water18*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -21452,7 +21683,8 @@ object house {
           tank_UA 3.2;
           demand water10*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -21559,7 +21791,8 @@ object house {
           tank_UA 3.6;
           demand water17*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -21666,7 +21899,8 @@ object house {
           tank_UA 3.4;
           demand water3*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -21834,7 +22068,8 @@ object house {
           tank_UA 2.7;
           demand water15*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -21941,7 +22176,8 @@ object house {
           tank_UA 3.7;
           demand water4*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -22048,7 +22284,8 @@ object house {
           tank_UA 3.0;
           demand water15*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -22155,7 +22392,8 @@ object house {
           tank_UA 2.5;
           demand water4*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -22262,7 +22500,8 @@ object house {
           tank_UA 3.2;
           demand water8*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -22369,7 +22608,8 @@ object house {
           tank_UA 3.5;
           demand water13*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -22476,7 +22716,8 @@ object house {
           tank_UA 2.4;
           demand water15*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -22583,7 +22824,8 @@ object house {
           tank_UA 3.3;
           demand water2*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -22690,7 +22932,8 @@ object house {
           tank_UA 2.9;
           demand water9*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -22797,7 +23040,8 @@ object house {
           tank_UA 2.2;
           demand water20*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -22965,7 +23209,8 @@ object house {
           tank_UA 3.7;
           demand water1*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -23072,7 +23317,8 @@ object house {
           tank_UA 2.8;
           demand water18*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -23301,7 +23547,8 @@ object house {
           tank_UA 2.6;
           demand water16*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -23469,7 +23716,8 @@ object house {
           tank_UA 3.6;
           demand water7*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -23698,7 +23946,8 @@ object house {
           tank_UA 3.2;
           demand water5*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -23866,7 +24115,8 @@ object house {
           tank_UA 3.5;
           demand water15*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -23973,7 +24223,8 @@ object house {
           tank_UA 3.7;
           demand water11*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -24080,7 +24331,8 @@ object house {
           tank_UA 3.0;
           demand water2*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -24248,7 +24500,8 @@ object house {
           tank_UA 3.9;
           demand water1*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -24416,7 +24669,8 @@ object house {
           tank_UA 3.3;
           demand water11*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -24523,7 +24777,8 @@ object house {
           tank_UA 3.0;
           demand water18*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -24691,7 +24946,8 @@ object house {
           tank_UA 2.8;
           demand water5*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -24798,7 +25054,8 @@ object house {
           tank_UA 3.8;
           demand water8*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -24905,7 +25162,8 @@ object house {
           tank_UA 3.9;
           demand water11*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -25073,7 +25331,8 @@ object house {
           tank_UA 3.5;
           demand water17*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -25180,7 +25439,8 @@ object house {
           tank_UA 3.4;
           demand water10*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -25287,7 +25547,8 @@ object house {
           tank_UA 3.4;
           demand water5*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -25394,7 +25655,8 @@ object house {
           tank_UA 3.8;
           demand water10*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -25562,7 +25824,8 @@ object house {
           tank_UA 2.0;
           demand water9*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -25692,7 +25955,8 @@ object house {
           tank_UA 3.6;
           demand water18*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -25799,7 +26063,8 @@ object house {
           tank_UA 3.3;
           demand water3*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -25967,7 +26232,8 @@ object house {
           tank_UA 2.1;
           demand water13*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -26196,7 +26462,8 @@ object house {
           tank_UA 3.1;
           demand water7*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -26364,7 +26631,8 @@ object house {
           tank_UA 2.9;
           demand water17*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -26532,7 +26800,8 @@ object house {
           tank_UA 2.3;
           demand water16*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -26639,7 +26908,8 @@ object house {
           tank_UA 3.3;
           demand water3*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -26746,7 +27016,8 @@ object house {
           tank_UA 2.8;
           demand water18*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -26914,7 +27185,8 @@ object house {
           tank_UA 3.6;
           demand water3*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -27082,7 +27354,8 @@ object house {
           tank_UA 3.5;
           demand water10*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -27250,7 +27523,8 @@ object house {
           tank_UA 3.6;
           demand water16*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -27418,7 +27692,8 @@ object house {
           tank_UA 2.6;
           demand water12*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -27525,7 +27800,8 @@ object house {
           tank_UA 3.5;
           demand water17*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -27632,7 +27908,8 @@ object house {
           tank_UA 2.1;
           demand water14*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -27800,7 +28077,8 @@ object house {
           tank_UA 3.8;
           demand water3*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -27907,7 +28185,8 @@ object house {
           tank_UA 2.0;
           demand water18*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -28014,7 +28293,8 @@ object house {
           tank_UA 3.2;
           demand water19*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -28182,7 +28462,8 @@ object house {
           tank_UA 2.9;
           demand water1*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -28350,7 +28631,8 @@ object house {
           tank_UA 3.6;
           demand water12*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -28579,7 +28861,8 @@ object house {
           tank_UA 3.8;
           demand water3*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -28686,7 +28969,8 @@ object house {
           tank_UA 3.6;
           demand water12*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -28793,7 +29077,8 @@ object house {
           tank_UA 2.8;
           demand water2*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -28900,7 +29185,8 @@ object house {
           tank_UA 3.7;
           demand water2*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -29007,7 +29293,8 @@ object house {
           tank_UA 2.1;
           demand water10*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -29175,7 +29462,8 @@ object house {
           tank_UA 4.0;
           demand water9*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -29343,7 +29631,8 @@ object house {
           tank_UA 3.5;
           demand water9*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -29450,7 +29739,8 @@ object house {
           tank_UA 3.8;
           demand water10*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -29557,7 +29847,8 @@ object house {
           tank_UA 3.5;
           demand water17*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -29664,7 +29955,8 @@ object house {
           tank_UA 3.9;
           demand water13*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -29771,7 +30063,8 @@ object house {
           tank_UA 3.8;
           demand water9*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -29939,7 +30232,8 @@ object house {
           tank_UA 2.5;
           demand water13*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -30046,7 +30340,8 @@ object house {
           tank_UA 3.9;
           demand water15*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -30153,7 +30448,8 @@ object house {
           tank_UA 3.3;
           demand water14*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -30260,7 +30556,8 @@ object house {
           tank_UA 2.3;
           demand water3*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -30489,7 +30786,8 @@ object house {
           tank_UA 2.5;
           demand water7*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -30596,7 +30894,8 @@ object house {
           tank_UA 3.1;
           demand water7*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -30764,7 +31063,8 @@ object house {
           tank_UA 3.7;
           demand water1*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -30932,7 +31232,8 @@ object house {
           tank_UA 3.8;
           demand water2*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -31039,7 +31340,8 @@ object house {
           tank_UA 3.5;
           demand water16*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -31146,7 +31448,8 @@ object house {
           tank_UA 2.4;
           demand water1*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -31253,7 +31556,8 @@ object house {
           tank_UA 3.1;
           demand water10*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -31421,7 +31725,8 @@ object house {
           tank_UA 3.4;
           demand water19*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -31589,7 +31894,8 @@ object house {
           tank_UA 2.0;
           demand water15*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -31757,7 +32063,8 @@ object house {
           tank_UA 2.6;
           demand water18*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -31864,7 +32171,8 @@ object house {
           tank_UA 2.3;
           demand water19*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -31971,7 +32279,8 @@ object house {
           tank_UA 2.1;
           demand water9*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -32200,7 +32509,8 @@ object house {
           tank_UA 3.4;
           demand water10*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -32307,7 +32617,8 @@ object house {
           tank_UA 2.4;
           demand water19*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -32498,7 +32809,8 @@ object house {
           tank_UA 2.6;
           demand water6*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -32605,7 +32917,8 @@ object house {
           tank_UA 4.0;
           demand water14*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -32773,7 +33086,8 @@ object house {
           tank_UA 2.1;
           demand water16*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -32941,7 +33255,8 @@ object house {
           tank_UA 3.0;
           demand water4*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -33048,7 +33363,8 @@ object house {
           tank_UA 3.6;
           demand water17*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -33277,7 +33593,8 @@ object house {
           tank_UA 2.9;
           demand water20*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -33384,7 +33701,8 @@ object house {
           tank_UA 2.2;
           demand water13*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -33491,7 +33809,8 @@ object house {
           tank_UA 3.1;
           demand water8*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -33598,7 +33917,8 @@ object house {
           tank_UA 3.4;
           demand water17*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -33705,7 +34025,8 @@ object house {
           tank_UA 3.9;
           demand water18*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -34056,7 +34377,8 @@ object house {
           tank_UA 2.2;
           demand water9*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -34224,7 +34546,8 @@ object house {
           tank_UA 2.9;
           demand water13*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -34331,7 +34654,8 @@ object house {
           tank_UA 3.6;
           demand water6*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -34438,7 +34762,8 @@ object house {
           tank_UA 3.2;
           demand water20*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -34545,7 +34870,8 @@ object house {
           tank_UA 3.3;
           demand water18*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -34652,7 +34978,8 @@ object house {
           tank_UA 3.5;
           demand water19*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -34759,7 +35086,8 @@ object house {
           tank_UA 3.0;
           demand water3*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -34866,7 +35194,8 @@ object house {
           tank_UA 3.1;
           demand water11*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -34973,7 +35302,8 @@ object house {
           tank_UA 2.3;
           demand water17*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -35080,7 +35410,8 @@ object house {
           tank_UA 2.7;
           demand water16*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -35187,7 +35518,8 @@ object house {
           tank_UA 3.1;
           demand water3*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -35355,7 +35687,8 @@ object house {
           tank_UA 3.5;
           demand water15*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -35462,7 +35795,8 @@ object house {
           tank_UA 3.3;
           demand water10*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -35569,7 +35903,8 @@ object house {
           tank_UA 3.9;
           demand water7*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -35676,7 +36011,8 @@ object house {
           tank_UA 3.8;
           demand water20*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -35783,7 +36119,8 @@ object house {
           tank_UA 3.2;
           demand water11*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -35890,7 +36227,8 @@ object house {
           tank_UA 3.6;
           demand water4*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -35997,7 +36335,8 @@ object house {
           tank_UA 3.5;
           demand water9*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -36165,7 +36504,8 @@ object house {
           tank_UA 3.1;
           demand water9*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -36272,7 +36612,8 @@ object house {
           tank_UA 3.9;
           demand water17*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -36379,7 +36720,8 @@ object house {
           tank_UA 2.7;
           demand water10*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -36547,7 +36889,8 @@ object house {
           tank_UA 2.6;
           demand water8*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -36654,7 +36997,8 @@ object house {
           tank_UA 3.2;
           demand water4*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -36761,7 +37105,8 @@ object house {
           tank_UA 2.6;
           demand water1*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -36868,7 +37213,8 @@ object house {
           tank_UA 3.9;
           demand water19*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -36975,7 +37321,8 @@ object house {
           tank_UA 3.5;
           demand water11*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -37082,7 +37429,8 @@ object house {
           tank_UA 2.0;
           demand water13*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -37250,7 +37598,8 @@ object house {
           tank_UA 2.3;
           demand water17*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -37540,7 +37889,8 @@ object house {
           tank_UA 2.5;
           demand water9*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -37647,7 +37997,8 @@ object house {
           tank_UA 2.6;
           demand water5*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -37754,7 +38105,8 @@ object house {
           tank_UA 2.6;
           demand water7*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -37861,7 +38213,8 @@ object house {
           tank_UA 2.7;
           demand water9*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -37968,7 +38321,8 @@ object house {
           tank_UA 3.7;
           demand water14*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -38075,7 +38429,8 @@ object house {
           tank_UA 3.5;
           demand water6*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -38182,7 +38537,8 @@ object house {
           tank_UA 4.0;
           demand water14*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -38289,7 +38645,8 @@ object house {
           tank_UA 3.2;
           demand water13*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -38396,7 +38753,8 @@ object house {
           tank_UA 3.4;
           demand water10*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -38503,7 +38861,8 @@ object house {
           tank_UA 3.1;
           demand water7*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -38610,7 +38969,8 @@ object house {
           tank_UA 3.5;
           demand water20*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -38717,7 +39077,8 @@ object house {
           tank_UA 3.9;
           demand water7*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -38885,7 +39246,8 @@ object house {
           tank_UA 2.8;
           demand water2*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -39114,7 +39476,8 @@ object house {
           tank_UA 3.2;
           demand water2*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -39282,7 +39645,8 @@ object house {
           tank_UA 2.8;
           demand water15*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -39450,7 +39814,8 @@ object house {
           tank_UA 2.6;
           demand water15*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -39679,7 +40044,8 @@ object house {
           tank_UA 3.9;
           demand water19*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -39847,7 +40213,8 @@ object house {
           tank_UA 4.0;
           demand water10*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -39954,7 +40321,8 @@ object house {
           tank_UA 3.9;
           demand water15*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -40244,7 +40612,8 @@ object house {
           tank_UA 3.6;
           demand water13*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -40351,7 +40720,8 @@ object house {
           tank_UA 3.2;
           demand water13*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -40458,7 +40828,8 @@ object house {
           tank_UA 3.0;
           demand water20*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -40565,7 +40936,8 @@ object house {
           tank_UA 3.6;
           demand water17*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -40672,7 +41044,8 @@ object house {
           tank_UA 2.4;
           demand water9*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -40779,7 +41152,8 @@ object house {
           tank_UA 3.3;
           demand water5*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -40886,7 +41260,8 @@ object house {
           tank_UA 2.1;
           demand water15*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -40993,7 +41368,8 @@ object house {
           tank_UA 3.0;
           demand water20*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -41161,7 +41537,8 @@ object house {
           tank_UA 3.5;
           demand water3*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -41268,7 +41645,8 @@ object house {
           tank_UA 3.0;
           demand water10*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -41375,7 +41753,8 @@ object house {
           tank_UA 2.1;
           demand water1*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -41604,7 +41983,8 @@ object house {
           tank_UA 2.4;
           demand water12*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -41711,7 +42091,8 @@ object house {
           tank_UA 3.9;
           demand water5*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -41818,7 +42199,8 @@ object house {
           tank_UA 2.8;
           demand water3*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -41925,7 +42307,8 @@ object house {
           tank_UA 2.8;
           demand water11*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -42032,7 +42415,8 @@ object house {
           tank_UA 3.3;
           demand water12*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -42200,7 +42584,8 @@ object house {
           tank_UA 2.0;
           demand water10*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -42368,7 +42753,8 @@ object house {
           tank_UA 3.0;
           demand water2*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -42475,7 +42861,8 @@ object house {
           tank_UA 3.5;
           demand water20*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -42643,7 +43030,8 @@ object house {
           tank_UA 3.2;
           demand water20*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -42750,7 +43138,8 @@ object house {
           tank_UA 2.4;
           demand water8*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -43063,7 +43452,8 @@ object house {
           tank_UA 2.2;
           demand water18*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -43170,7 +43560,8 @@ object house {
           tank_UA 2.6;
           demand water14*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -43277,7 +43668,8 @@ object house {
           tank_UA 2.1;
           demand water1*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -43384,7 +43776,8 @@ object house {
           tank_UA 2.7;
           demand water4*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -43491,7 +43884,8 @@ object house {
           tank_UA 2.3;
           demand water6*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -43598,7 +43992,8 @@ object house {
           tank_UA 2.9;
           demand water20*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -43705,7 +44100,8 @@ object house {
           tank_UA 3.8;
           demand water18*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -43812,7 +44208,8 @@ object house {
           tank_UA 2.3;
           demand water15*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -43919,7 +44316,8 @@ object house {
           tank_UA 2.6;
           demand water10*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -44026,7 +44424,8 @@ object house {
           tank_UA 3.4;
           demand water6*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -44133,7 +44532,8 @@ object house {
           tank_UA 3.3;
           demand water7*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -44240,7 +44640,8 @@ object house {
           tank_UA 3.2;
           demand water11*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -44408,7 +44809,8 @@ object house {
           tank_UA 3.6;
           demand water10*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -44637,7 +45039,8 @@ object house {
           tank_UA 2.9;
           demand water10*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -44744,7 +45147,8 @@ object house {
           tank_UA 2.9;
           demand water20*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -44851,7 +45255,8 @@ object house {
           tank_UA 2.5;
           demand water12*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -45141,7 +45546,8 @@ object house {
           tank_UA 2.3;
           demand water16*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -45248,7 +45654,8 @@ object house {
           tank_UA 2.7;
           demand water9*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -45416,7 +45823,8 @@ object house {
           tank_UA 4.0;
           demand water3*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -45523,7 +45931,8 @@ object house {
           tank_UA 3.0;
           demand water6*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -45630,7 +46039,8 @@ object house {
           tank_UA 4.0;
           demand water5*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -45737,7 +46147,8 @@ object house {
           tank_UA 3.2;
           demand water13*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -45844,7 +46255,8 @@ object house {
           tank_UA 3.0;
           demand water8*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -45951,7 +46363,8 @@ object house {
           tank_UA 3.8;
           demand water7*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -46058,7 +46471,8 @@ object house {
           tank_UA 3.8;
           demand water8*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -46287,7 +46701,8 @@ object house {
           tank_UA 3.4;
           demand water19*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -46394,7 +46809,8 @@ object house {
           tank_UA 2.6;
           demand water15*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -46501,7 +46917,8 @@ object house {
           tank_UA 3.0;
           demand water14*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -46669,7 +47086,8 @@ object house {
           tank_UA 3.1;
           demand water13*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -46837,7 +47255,8 @@ object house {
           tank_UA 2.2;
           demand water7*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -46944,7 +47363,8 @@ object house {
           tank_UA 2.2;
           demand water18*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -47051,7 +47471,8 @@ object house {
           tank_UA 2.0;
           demand water8*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -47341,7 +47762,8 @@ object house {
           tank_UA 3.4;
           demand water13*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -47448,7 +47870,8 @@ object house {
           tank_UA 3.1;
           demand water8*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -47616,7 +48039,8 @@ object house {
           tank_UA 3.3;
           demand water11*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -48028,7 +48452,8 @@ object house {
           tank_UA 3.4;
           demand water16*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -48135,7 +48560,8 @@ object house {
           tank_UA 2.9;
           demand water16*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -48242,7 +48668,8 @@ object house {
           tank_UA 2.3;
           demand water19*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -48349,7 +48776,8 @@ object house {
           tank_UA 3.4;
           demand water9*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -48578,7 +49006,8 @@ object house {
           tank_UA 4.0;
           demand water20*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -48685,7 +49114,8 @@ object house {
           tank_UA 2.8;
           demand water16*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -48792,7 +49222,8 @@ object house {
           tank_UA 2.0;
           demand water3*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -48899,7 +49330,8 @@ object house {
           tank_UA 2.1;
           demand water18*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -49006,7 +49438,8 @@ object house {
           tank_UA 3.6;
           demand water13*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -49113,7 +49546,8 @@ object house {
           tank_UA 3.3;
           demand water2*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -49220,7 +49654,8 @@ object house {
           tank_UA 3.0;
           demand water12*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -49411,7 +49846,8 @@ object house {
           tank_UA 3.5;
           demand water3*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -49518,7 +49954,8 @@ object house {
           tank_UA 3.2;
           demand water8*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -49625,7 +50062,8 @@ object house {
           tank_UA 3.2;
           demand water16*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -49793,7 +50231,8 @@ object house {
           tank_UA 3.6;
           demand water17*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -49900,7 +50339,8 @@ object house {
           tank_UA 2.5;
           demand water14*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -50007,7 +50447,8 @@ object house {
           tank_UA 3.0;
           demand water18*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -50114,7 +50555,8 @@ object house {
           tank_UA 3.7;
           demand water4*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -50221,7 +50663,8 @@ object house {
           tank_UA 4.0;
           demand water19*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -50328,7 +50771,8 @@ object house {
           tank_UA 2.3;
           demand water20*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -50557,7 +51001,8 @@ object house {
           tank_UA 3.1;
           demand water12*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -50664,7 +51109,8 @@ object house {
           tank_UA 3.4;
           demand water10*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -50832,7 +51278,8 @@ object house {
           tank_UA 2.4;
           demand water7*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -50939,7 +51386,8 @@ object house {
           tank_UA 2.7;
           demand water9*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -51046,7 +51494,8 @@ object house {
           tank_UA 3.7;
           demand water8*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -51153,7 +51602,8 @@ object house {
           tank_UA 4.0;
           demand water7*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -51260,7 +51710,8 @@ object house {
           tank_UA 2.1;
           demand water12*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -51489,7 +51940,8 @@ object house {
           tank_UA 3.8;
           demand water12*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -51596,7 +52048,8 @@ object house {
           tank_UA 2.5;
           demand water4*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -51703,7 +52156,8 @@ object house {
           tank_UA 2.7;
           demand water17*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -52054,7 +52508,8 @@ object house {
           tank_UA 4.0;
           demand water13*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -52222,7 +52677,8 @@ object house {
           tank_UA 2.3;
           demand water17*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -52329,7 +52785,8 @@ object house {
           tank_UA 2.3;
           demand water20*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -52436,7 +52893,8 @@ object house {
           tank_UA 3.7;
           demand water1*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -52665,7 +53123,8 @@ object house {
           tank_UA 3.0;
           demand water20*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -52772,7 +53231,8 @@ object house {
           tank_UA 2.9;
           demand water3*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -52940,7 +53400,8 @@ object house {
           tank_UA 2.8;
           demand water2*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -53047,7 +53508,8 @@ object house {
           tank_UA 3.9;
           demand water18*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -53154,7 +53616,8 @@ object house {
           tank_UA 2.0;
           demand water9*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -53261,7 +53724,8 @@ object house {
           tank_UA 2.8;
           demand water10*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -53490,7 +53954,8 @@ object house {
           tank_UA 3.1;
           demand water14*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -53719,7 +54184,8 @@ object house {
           tank_UA 2.0;
           demand water19*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -53826,7 +54292,8 @@ object house {
           tank_UA 2.3;
           demand water18*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -53933,7 +54400,8 @@ object house {
           tank_UA 3.9;
           demand water4*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -54040,7 +54508,8 @@ object house {
           tank_UA 2.8;
           demand water14*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -54353,7 +54822,8 @@ object house {
           tank_UA 3.1;
           demand water13*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -54521,7 +54991,8 @@ object house {
           tank_UA 3.0;
           demand water17*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -54628,7 +55099,8 @@ object house {
           tank_UA 2.8;
           demand water14*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -54735,7 +55207,8 @@ object house {
           tank_UA 3.8;
           demand water5*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -54842,7 +55315,8 @@ object house {
           tank_UA 2.9;
           demand water14*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -54949,7 +55423,8 @@ object house {
           tank_UA 2.4;
           demand water8*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -55056,7 +55531,8 @@ object house {
           tank_UA 2.9;
           demand water5*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -55186,7 +55662,8 @@ object house {
           tank_UA 2.4;
           demand water20*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -55293,7 +55770,8 @@ object house {
           tank_UA 3.4;
           demand water14*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -55461,7 +55939,8 @@ object house {
           tank_UA 3.6;
           demand water8*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -55568,7 +56047,8 @@ object house {
           tank_UA 2.7;
           demand water14*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -55698,7 +56178,8 @@ object house {
           tank_UA 3.3;
           demand water5*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -55805,7 +56286,8 @@ object house {
           tank_UA 3.0;
           demand water6*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -55912,7 +56394,8 @@ object house {
           tank_UA 3.2;
           demand water19*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -56019,7 +56502,8 @@ object house {
           tank_UA 3.0;
           demand water6*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -56126,7 +56610,8 @@ object house {
           tank_UA 3.4;
           demand water8*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -56233,7 +56718,8 @@ object house {
           tank_UA 3.5;
           demand water14*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -56340,7 +56826,8 @@ object house {
           tank_UA 3.2;
           demand water16*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -56554,7 +57041,8 @@ object house {
           tank_UA 2.4;
           demand water9*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -56783,7 +57271,8 @@ object house {
           tank_UA 3.7;
           demand water17*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -56913,7 +57402,8 @@ object house {
           tank_UA 2.8;
           demand water18*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -57020,7 +57510,8 @@ object house {
           tank_UA 2.5;
           demand water1*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -57188,7 +57679,8 @@ object house {
           tank_UA 3.1;
           demand water1*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -57295,7 +57787,8 @@ object house {
           tank_UA 3.3;
           demand water2*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -57486,7 +57979,8 @@ object house {
           tank_UA 3.7;
           demand water10*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -57616,7 +58110,8 @@ object house {
           tank_UA 2.8;
           demand water16*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -57723,7 +58218,8 @@ object house {
           tank_UA 3.0;
           demand water8*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -57891,7 +58387,8 @@ object house {
           tank_UA 3.3;
           demand water2*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -58059,7 +58556,8 @@ object house {
           tank_UA 2.7;
           demand water2*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -58250,7 +58748,8 @@ object house {
           tank_UA 2.6;
           demand water1*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -58357,7 +58856,8 @@ object house {
           tank_UA 3.8;
           demand water18*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -58525,7 +59025,8 @@ object house {
           tank_UA 2.8;
           demand water17*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -58693,7 +59194,8 @@ object house {
           tank_UA 2.5;
           demand water18*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -58800,7 +59302,8 @@ object house {
           tank_UA 2.2;
           demand water6*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -58968,7 +59471,8 @@ object house {
           tank_UA 3.6;
           demand water20*1;
           object passive_controller {
-          	  period 300;
+          	  //period 300; //changes
+			  period 30;
               control_mode PROBABILITY_OFF;
           	  distribution_type NORMAL;
           	  observation_object Market_1;
@@ -58986,73 +59490,93 @@ object house {
 object recorder {
      parent Reg1;
      file reg1_output.csv;
-     interval 60;
-     limit 2880;
+     //limit 2880; //changes
+     limit 5760;
+     //interval 60;
+     interval 30;
      property tap_A,tap_B,tap_C,power_in_A.real,power_in_A.imag,power_in_B.real,power_in_B.imag,power_in_C.real,power_in_C.imag,power_in.real,power_in.imag;
 };
 object recorder {
      parent 630;
      file Voltage_630.csv;
-     interval 60;
-     limit 2880;
+     //limit 2880; //changes
+     limit 5760;
+     //interval 60;
+     interval 30;
      property voltage_A.real,voltage_A.imag,voltage_B.real,voltage_B.imag,voltage_C.real,voltage_C.imag;
 };
 object recorder {
      parent 671;
      file Voltage_671.csv;
-     interval 60;
-     limit 2880;
+     //limit 2880; //changes
+     limit 5760;
+     //interval 60;
+     interval 30;
      property voltage_A.real,voltage_A.imag,voltage_B.real,voltage_B.imag,voltage_C.real,voltage_C.imag;
 };
 object recorder {
      parent 675;
      file Voltage_675.csv;
-     interval 60;
-     limit 2880;
+     //limit 2880; //changes
+     limit 5760;
+     //interval 60;
+     interval 30;
      property voltage_A.real,voltage_A.imag,voltage_B.real,voltage_B.imag,voltage_C.real,voltage_C.imag;
 };
 object recorder {
      parent 652;
      file Voltage_652.csv;
-     interval 60;
-     limit 2880;
+     //limit 2880; //changes
+     limit 5760;
+     //interval 60;
+     interval 30;
      property voltage_A.real,voltage_A.imag,voltage_B.real,voltage_B.imag,voltage_C.real,voltage_C.imag;
 };
 object recorder {
      parent 680;
      file Voltage_680.csv;
-     interval 60;
-     limit 2880;
+     //limit 2880; //changes
+     limit 5760;
+     //interval 60;
+     interval 30;
      property voltage_A.real,voltage_A.imag,voltage_B.real,voltage_B.imag,voltage_C.real,voltage_C.imag;
 };
 object recorder {
      parent CAP1;
      file capacitor1_output.csv;
-     interval 60;
-     limit 2880;
+     //limit 2880; //changes
+     limit 5760;
+     //interval 60;
+     interval 30;
      property switchA,switchB,switchC;
 };
 object recorder {
      parent CAP2;
      file capacitor2_output.csv;
-     interval 60;
-     limit 2880;
+     //limit 2880; //changes
+     limit 5760;
+     //interval 60;
+     interval 30;
      property switchA,switchB,switchC;
 };
 
 object collector {
      group "class=house";
      property sum(hvac_power.real),sum(hvac_power.imag),sum(is_HEAT_on),sum(is_AUX_on),sum(is_COOL_on) ;
-     interval 60;
-     limit 2880;
+    //limit 2880; //changes
+     limit 5760;
+     //interval 60;
+     interval 30;
      file HVAC_Data.csv;
 }
 
 object collector {
      group "class=house";
      property avg(cooling_setpoint),sum(hvac_load);
-     interval 60;
-     limit 2880;
+     //limit 2880; //changes
+     limit 5760;
+     //interval 60;
+     interval 30;
      file HVAC_Data2.csv;
 }
 
